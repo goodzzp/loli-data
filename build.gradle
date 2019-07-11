@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'scala'
+}
+
+group 'loli'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    
+    compile group: 'org.apache.spark', name: 'spark-core_2.11', version: '2.4.0'
+    compile group: 'org.apache.spark', name: 'spark-mllib_2.11', version: '2.4.0'
+    compile group: 'org.apache.spark', name: 'spark-sql_2.11', version: '2.4.0'
+}
+
+jar {
+    archiveName = 'loli-data_1.0.jar'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
